@@ -1,0 +1,167 @@
+// .visible {
+//     opacity: 1;
+//     display: ;
+// }
+
+// .invisible {
+//     opacity: 0;
+// }
+
+// .smooth-show {
+//     transition: opacity 0.3 ease;
+// }
+
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* For Internet Explorer */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+// .fadeInAnimation {
+//     animation: fadeIn 1s ease-in-out forwards;
+// }
+
+.contacts::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+@keyframes upwards-dissapear {
+  0% {
+    transform: translateY(0); /* Start at original position */
+  }
+  100% {
+    transform: translateY(-150px); /* Move up */
+  }
+}
+
+@keyframes gelatine {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+.gelatine {
+  animation: gelatine 0.5s;
+}
+
+.delete-animation {
+  animation: upwards-dissapear 2s cubic-bezier(0.25, 1, 0.5, 1) forwards
+    infinite;
+  //animation: gelatine 0.5s;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fall-with-bounce {
+  0% {
+    transform: translateY(-200px);
+  }
+  80% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px); /* Slight bounce back */
+  }
+}
+
+@keyframes hithere {
+  30% {
+    transform: scale(1.5);
+  }
+  40% {
+    transform: rotate(-20deg) scale(1.5);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.5);
+  }
+  60% {
+    transform: rotate(-20deg) scale(1.5);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes falldown {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+.rotate-z {
+  // transform: rotateY(45deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+@keyframes rotationY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.rotate-y {
+  animation: rotationY ease 1s 0s 1;
+}
+
+.fall-animation {
+  animation: hithere 1s ease, fadeout 0.5s ease 1s, falldown 0.5s ease 1s;
+  // fall 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s forwards,
+  // gelatine 0.5s 1.5s;
+}

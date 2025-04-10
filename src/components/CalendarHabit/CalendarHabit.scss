@@ -1,0 +1,30 @@
+
+.calendar-habit {
+    margin: 40px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+
+    .day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        font-size: 20px;
+    }
+
+    .completed {
+        position: absolute; /* Position the pseudo-element absolutely */
+        top: 50%; /* Move it halfway down */
+        left: 50%; /* Move it halfway across */
+        transform: translate(-50%, -50%); /* Offset it by 50% of its own size to center it */
+    }
+}
+
+.selector .label {
+    font-weight: bold;
+    color: #333;
+}

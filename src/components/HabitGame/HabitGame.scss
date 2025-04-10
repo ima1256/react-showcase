@@ -1,0 +1,124 @@
+$font-family: 'Press Start 2P', cursive;
+
+.wrapper {
+  font-family: $font-family;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.habit-cards {
+  margin-bottom: 30px;
+}
+
+.delete-habit {
+  position: relative;
+  right: 0;
+}
+
+.habit-card {
+  display: flex;
+  padding: 10px;
+  font-size: 20px;
+  grid-gap: 10px;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  /* Special styles */
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  & > div {
+    display: flex;
+    justify-content: start;
+    font-family: inherit;
+  }
+
+  &.deleted {
+    opacity: 0;
+    transform: translateY(-10px); /* Moves the card upwards */
+  }
+
+  /* Uncomment if needed */
+  /* .amount::before {
+    content: 'Amount:';
+    margin-right: 7px;
+  }
+
+  .frecuency::before {
+    content: 'Frecuency:';
+    margin-right: 7px;
+  } */
+}
+
+.habits-section-wrap {
+  min-width: 50%;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+.habits-input {
+  outline: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: block;
+  width: calc(100% - 20px);
+}
+
+.habit-titles {
+  font-size: 23px;
+  font-weight: bold;
+  display: grid;
+  margin-bottom: 30px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.modalStyles {
+  .modal {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+    background-color: white;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the modal is on top of other elements */
+  }
+}
+
+.modal .inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  grid-gap: 10px;
+}

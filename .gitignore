@@ -1,0 +1,53 @@
+# Node modules
+/node_modules/
+
+# Build output
+/build/
+# /dist/
+
+# React Native
+.expo/
+.expo-shared/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# dotenv environment variables file
+.env
+.env.local
+.env.*.local
+
+# VS Code settings
+.vscode/
+
+# npm package lock
+package-lock.json
+yarn.lock
+
+# JetBrains IDE settings
+.idea/
+
+# Dependency directories for Yarn PnP (if using Yarn)
+.pnp/
+.pnp.js
+
+# Tailwind CSS build files
+.tailwind/
+
+# SASS cache
+.sass-cache/
+
+# Firebase generated files (if any)
+firebase-debug.log
+
+# Coverage directory for code coverage reports
+/coverage/
+
+# Jest configuration file
+jest.config.js

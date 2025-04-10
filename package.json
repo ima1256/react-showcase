@@ -1,0 +1,73 @@
+{
+  "name": "react-app",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "https://www.soundhelix.com",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@faker-js/faker": "^9.4.0",
+    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
+    "@hello-pangea/dnd": "^17.0.0",
+    "@mui/icons-material": "^6.3.1",
+    "@mui/styled-engine": "^6.3.1",
+    "@reduxjs/toolkit": "^2.5.0",
+    "animejs": "^3.2.2",
+    "axios": "^1.7.9",
+    "cra-template": "1.2.0",
+    "date-fns": "^4.1.0",
+    "dom-to-image-more": "^3.5.0",
+    "firebase": "^11.1.0",
+    "gsap": "^3.12.7",
+    "he": "^1.2.0",
+    "html2canvas": "^1.4.1",
+    "react": "^18.3.1",
+    "react-audio-visualize": "^1.2.0",
+    "react-datepicker": "^7.6.0",
+    "react-dom": "^18.3.1",
+    "react-hotkeys": "^2.0.0",
+    "react-list-separator": "^0.0.10",
+    "react-modal": "^3.16.3",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.1.1",
+    "react-scripts": "5.0.1",
+    "recoil": "^0.7.7",
+    "redux": "^5.0.1",
+    "sass": "^1.83.1",
+    "styled-components": "^6.1.14",
+    "use-keyboard": "^1.0.2",
+    "uuid": "^11.0.5",
+    "wavesurfer.js": "^7.8.16",
+    "web-vitals": "^4.2.4",
+    "zustand": "^5.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}

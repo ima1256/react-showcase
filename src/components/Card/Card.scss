@@ -1,0 +1,71 @@
+
+// .card {
+//     border-radius: 10px;
+//     padding: 10px;
+
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Soft shadow */
+//     transition: box-shadow 0.2s ease; /* Smooth transition for shadow */
+// }
+
+// .card * {
+//     font-family: Arial, Helvetica, sans-serif;
+//     color: #00FF9C;
+// }
+
+@keyframes ambarText {
+    0% {
+        color: #cccccc;
+    }
+    100% {
+        color: #B22222
+    }
+}
+
+@keyframes scaleAndMoveUp {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(40px) scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-400px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+.card-title {
+    font-size: 15px;
+}
+
+.card svg {
+    transition: transform 0.3s ease;
+}
+
+.card .invisible {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card .visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.card .scaled{
+    transform: scale(1.5); /* Scales the icon to 1.5x its size */
+}
+
+// .change-display {
+//     tran
+// }

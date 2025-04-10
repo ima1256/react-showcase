@@ -1,0 +1,28 @@
+{
+  "title": "SEAT Ibiza 1.6 TDI Style Go Navi",
+  "price": {
+    "cash_price": "14,990 €",
+    "financed_price": "13,265 €",
+    "monthly_payment": "163.68 €/mes"
+  },
+  "details": {
+    "fuel_type": "Diesel",
+    "year": 2020,
+    "mileage": "66,166 km",
+    "power": "95 cv",
+    "location": "Murcia"
+  },
+  "dealer_info": {
+    "dealer_name": "Crestanevada",
+    "professional_rating": 4.3
+  },
+  "extras": {
+    "warranty": "1 año",
+    "vat_included": true
+  },
+  "financing_terms": {
+    "down_payment": "Sin entrada",
+    "duration": "120 meses",
+    "interest_rate": "TAE 8.74%"
+  }
+}
