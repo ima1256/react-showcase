@@ -12,13 +12,10 @@ import ChatInput from "./ChatInput";
 import Status from "./Status";
 
 const Chat = () => {
-
   const saveInLocalStorage = (name, value) => {
     // JSON.parse(localStorage.getItem("contacts"));
     //localStorage.setItem("myObject", JSON.stringify(contacts));
-  }
-
-
+  };
 
   const theme = useTheme();
 
@@ -27,7 +24,7 @@ const Chat = () => {
   const [loading, setLoading] = useState(true);
 
   const [selectedContactId, setSelectedContactId] = useState(null);
-  const [selectedContact, setSelectedContact] = useState(null)
+  const [selectedContact, setSelectedContact] = useState(null);
 
   const [contacts, setContacts] = useState([]);
 
@@ -36,30 +33,28 @@ const Chat = () => {
   };
 
   const handleClickInContact = (contactId) => {
-    setSelectedContactId(contactId)
-  }
+    setSelectedContactId(contactId);
+  };
 
   useEffect(() => {
-    setSelectedContact(contacts.find((contact) => contact.id === selectedContactId))
-  }, [selectedContactId])
+    setSelectedContact(
+      contacts.find((contact) => contact.id === selectedContactId)
+    );
+  }, [selectedContactId]);
 
   useEffect(() => {
-    
     if (contacts.length > 0) {
-  
-      setSelectedContactId(contacts[0].id)
-      setSelectedContact(contacts.find((contact) => contact.id === contacts[0].id))
-      setLoading(false)
-
+      setSelectedContactId(contacts[0].id);
+      setSelectedContact(
+        contacts.find((contact) => contact.id === contacts[0].id)
+      );
+      setLoading(false);
     }
   }, [contacts]);
 
   useEffect(() => {
-
-    fetchProfileImages().then(data => {
-
+    fetchProfileImages().then((data) => {
       setContacts(
-
         Array.from({ length: 30 }, (_, index) => {
           return {
             id: `${Date.now()}-${Math.floor(Math.random() * 1_000_000)}`,
@@ -68,10 +63,8 @@ const Chat = () => {
             online: Math.random() < 0.5,
           };
         })
-
-      )
-
-    })
+      );
+    });
 
     const handleSpace = (event) => {
       if (event.code === "Space" || event.key === " ") {
@@ -87,21 +80,18 @@ const Chat = () => {
   }, []);
 
   const fetchProfileImages = async () => {
-
-    let avatars = JSON.parse(localStorage.getItem('avatars'))
+    let avatars = JSON.parse(localStorage.getItem("avatars"));
 
     if (!avatars) {
-
       const response = await fetch(
         `https://api.unsplash.com/photos/random?query=face&count=${30}&client_id=${UNSPLASH_ACCESS_KEY}`
-      )
+      );
 
-      avatars = await response.json()
-      localStorage.setItem('avatars', JSON.stringify(avatars))
-
+      avatars = await response.json();
+      localStorage.setItem("avatars", JSON.stringify(avatars));
     }
 
-    return avatars
+    return avatars;
   };
 
   return (
@@ -111,7 +101,6 @@ const Chat = () => {
         height: "calc(100vh - 64px)",
       }}
     >
-      
       <Contacts
         onEmitEvent={handleClickInContact}
         contacts={contacts}
@@ -127,14 +116,13 @@ const Chat = () => {
         className="h-full flex flex-col justify-end"
       >
         <div className="contact-highlight p-2">
-          {selectedContactId && <Contact
-            cla="scale-200"
-            loading={loading}
-            contact={
-              selectedContact
-            }
-          />}
-         
+          {selectedContactId && (
+            <Contact
+              cla="scale-200"
+              loading={loading}
+              contact={selectedContact}
+            />
+          )}
         </div>
 
         <ChatInput contacts={contacts} selectedContactId={selectedContactId} />

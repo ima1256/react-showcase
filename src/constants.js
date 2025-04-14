@@ -12,5 +12,6 @@ export const routes = [
   { id: "chat", value: "Chat" },
   { id: "trivial", value: "Trivial" },
   { id: "animations", value: "Animations" },
-  { id: "cars", value: "Cars"}
+  { id: "cars", value: "Cars"},
+  { id: "autentication", value: 'Auth'}
 ];

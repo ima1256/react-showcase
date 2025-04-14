@@ -25,6 +25,7 @@ import Animations from "./components/Animations/Animations";
 import MenuIcon from "@mui/icons-material/Menu";
 import { routes } from "./constants";
 import Cars from "./components/Cars/Cars";
+import Autentication from "./components/Autentication/Autentication";
 
 function App() {
   const messages = useSelector((state) => state.messages.value);
@@ -104,6 +105,7 @@ function App() {
             <Route path="/trivial" element={<Trivial />} />
             <Route path="/animations" element={<Animations />} />
             <Route path="/cars" element={<Cars />} />
+            <Route path="/autentication" element={<Autentication />} />
           </Routes>
         </Router>
       </ThemeProvider>
