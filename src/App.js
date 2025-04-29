@@ -61,11 +61,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        {/* <div className="wave-background"></div> Background Waves */}
-        {false &&
-        (process.env.REACT_APP_AUTH_REQUIRED !== "true" ||
-          (user && user?.emailVerified)) ? (
-          //NAVIGATION BAR START
+
+      
           <nav
             className={
               "z-50 py-2 px-3 navigation-bar flex flex-row justify-between items-center h-[64px] w-[100%]"
@@ -117,13 +114,12 @@ function App() {
               <Settings />
             </div>
           </nav>
-        ) : //NAVIGATION BAR FINISH
-        null}
+
         {/* <div className="absolute z-50"> 
           <img src={`${require("./assets/img/message.png")}`} />
         </div> */}
         <Routes>
-          <Route path="/portfolio" element={<Portfolio />} />
+          {/* <Route path="/portfolio" element={<Portfolio />} /> */}
           <Route
             path="/home"
             element={
