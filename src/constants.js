@@ -13,5 +13,5 @@ export const routes = [
   { id: "trivial", value: "Trivial" },
   { id: "animations", value: "Animations" },
   { id: "cars", value: "Cars"},
-  { id: "autentication", value: 'Auth'}
+  { id: "authentication", value: 'Auth'}
 ];

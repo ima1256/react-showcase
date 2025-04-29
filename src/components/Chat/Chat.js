@@ -115,7 +115,7 @@ const Chat = () => {
         }}
         className="h-full flex flex-col justify-end"
       >
-        <div className="contact-highlight p-2">
+        <div className="contact-highlight p-2 bg-red">
           {selectedContactId && (
             <Contact
               cla="scale-200"

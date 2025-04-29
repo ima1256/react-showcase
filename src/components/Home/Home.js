@@ -10,15 +10,15 @@ const Home = () => {
 
   const [addingUser, setAddingUser] = useState(false);
 
-  useEffect(() => {
-    getUsers()
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching users:", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   getUsers()
+  //     .then((data) => {
+  //       setUsers(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching users:", error);
+  //     });
+  // }, []);
 
   const newUser = {
     name: "Imanol",
@@ -42,9 +42,9 @@ const Home = () => {
                 Welcome to the Home Page bro!
             </h2> */}
 
-      <button onClick={() => handleAddUser()}>
+      {/* <button onClick={() => handleAddUser()}>
         {addingUser ? "Adding..." : "Add user"}
-      </button>
+      </button> */}
 
       <Card name={"imanol"} email={"imanol@gmail.com"} phone={"+34627188777"} />
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -25,9 +25,15 @@ import Animations from "./components/Animations/Animations";
 import MenuIcon from "@mui/icons-material/Menu";
 import { routes } from "./constants";
 import Cars from "./components/Cars/Cars";
-import Autentication from "./components/Autentication/Autentication";
+import Autentication from "./components/Authentication/Authentication";
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import PrivateRoute from "./Routing/PrivateRoute";
+import Portfolio from "./components/Portfolio/Portfolio";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   const messages = useSelector((state) => state.messages.value);
 
   const [open, setOpen] = useState(false);
@@ -36,9 +42,30 @@ function App() {
     setOpen(value);
   };
 
+  useEffect(() => {
+    // Listener to check if the user is logged in or logged out
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("User is logged in:", user);
+        setUser(user); // Set the user state if logged in
+      } else {
+        console.log("No user is logged in");
+        setUser(null); // Set the user state to null if logged out
+      }
+    });
+
+    // Cleanup the listener on component unmount
+    return () => unsubscribe();
+  }, []);
+
   return (
-      <ThemeProvider theme={theme}>
-        <Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        {/* <div className="wave-background"></div> Background Waves */}
+        {false &&
+        (process.env.REACT_APP_AUTH_REQUIRED !== "true" ||
+          (user && user?.emailVerified)) ? (
+          //NAVIGATION BAR START
           <nav
             className={
               "z-50 py-2 px-3 navigation-bar flex flex-row justify-between items-center h-[64px] w-[100%]"
@@ -46,9 +73,7 @@ function App() {
           >
             <div className="left-elements flex flex-row items-center justify-between gap-1">
               <IconButton onClick={() => toggleDrawer(true)}>
-                <MenuIcon
-                  className="text-white cursor-pointer"
-                />
+                <MenuIcon className="text-white cursor-pointer" />
               </IconButton>
               {/* <svg width='100' height="20" >
             <text fontFamily="Arial" fontSize="10" fill="white" >ICG</text>
@@ -65,14 +90,13 @@ function App() {
             </Drawer>
 
             <div className="links">
-              {routes.map(route => {
+              {routes.map((route) => {
                 return (
                   <ButtonLink key={route.id} to={route.id} variant="contained">
                     {route.value}
                   </ButtonLink>
-                )
+                );
               })}
-              
             </div>
 
             <div className="flex flex-row items-center right-elements">
@@ -93,22 +117,98 @@ function App() {
               <Settings />
             </div>
           </nav>
+        ) : //NAVIGATION BAR FINISH
+        null}
+        {/* <div className="absolute z-50"> 
+          <img src={`${require("./assets/img/message.png")}`} />
+        </div> */}
+        <Routes>
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/todolist"
+            element={
+              <PrivateRoute>
+                <TodoList />
+              </PrivateRoute>
+            }
+          />
 
-          <Routes>
-            <Route path="*" element={<Navigate to="/home" />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/todolist" element={<TodoList />} />
-            <Route path="/calculator" element={<Calculator />} />
-            <Route path="/habitgame" element={<HabitGame />} />
-            <Route path="/calendarhabit" element={<CalendarHabit />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/trivial" element={<Trivial />} />
-            <Route path="/animations" element={<Animations />} />
-            <Route path="/cars" element={<Cars />} />
-            <Route path="/autentication" element={<Autentication />} />
-          </Routes>
-        </Router>
-      </ThemeProvider>
+          <Route
+            path="/calculator"
+            element={
+              <PrivateRoute>
+                <Calculator />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/habitgame"
+            element={
+              <PrivateRoute>
+                <HabitGame />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/calendarhabit"
+            element={
+              <PrivateRoute>
+                <CalendarHabit />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/chat"
+            element={
+              <PrivateRoute>
+                <Chat />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/trivial"
+            element={
+              <PrivateRoute>
+                <Trivial />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/animations"
+            element={
+              <PrivateRoute>
+                <Animations />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/cars"
+            element={
+              <PrivateRoute>
+                <Cars />
+              </PrivateRoute>
+            }
+          />
+
+          <Route path="/authentication" element={<Autentication />} />
+          <Route path="*" element={<Navigate to="/home" />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

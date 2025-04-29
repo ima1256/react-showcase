@@ -1,6 +1,6 @@
 import "./Chat.scss";
 import { Button, Stack } from "@mui/material";
-import {Input }from "@mui/material";
+import { Input } from "@mui/material";
 import { useState, useRef, useEffect } from "react";
 import SendIcon from "@mui/icons-material/Send";
 import MicIcon from "@mui/icons-material/Mic";
@@ -8,17 +8,16 @@ import ArticleIcon from "@mui/icons-material/Article";
 import DeleteOutlineTwoToneIcon from "@mui/icons-material/DeleteOutlineTwoTone";
 import { IconButton } from "@mui/material";
 import { AudioVisualizer, LiveAudioVisualizer } from "react-audio-visualize";
-import CustomAudioVisualizer from "./CustomAudioVisualizer";
 
 const ChatInput = () => {
-  const chatContainerRef = useRef(null)
+  const chatContainerRef = useRef(null);
 
-  const [maxHeight, setMaxHeight] = useState(null)
+  const [maxHeight, setMaxHeight] = useState(null);
 
-  const [mic, setMic] = useState(true)
+  const [mic, setMic] = useState(true);
 
-  const [deleteAnimation, setDeleteAnimation] = useState(false)
-  const [micAnimation, setMicAnimation] = useState(false)
+  const [deleteAnimation, setDeleteAnimation] = useState(false);
+  const [micAnimation, setMicAnimation] = useState(false);
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -55,37 +54,43 @@ const ChatInput = () => {
 
   useEffect(() => {
     chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-  }, [messages])
+  }, [messages]);
 
   const handleMicChange = () => {
-
     if (mic) {
-      setMic(false)
+      setMic(false);
     } else {
-
-      setDeleteAnimation(true)
+      setDeleteAnimation(true);
 
       setTimeout(() => {
-        setDeleteAnimation(false)
-        setMic(true)
-        setMicAnimation(true)
-      }, 1500)
-
+        setDeleteAnimation(false);
+        setMic(true);
+        setMicAnimation(true);
+      }, 1500);
     }
-
-  }
+  };
 
   return (
-    <Stack className="bg-[#cccccc] p-3 h-full overflow-hidden">
+    <Stack
+      className="bg-[#cccccc] p-3 h-full overflow-hidden bg-red-500"
+      sx={{
+        backgroundImage: `url(${require("../../assets/img/chat_background.jpg")})`, // adjust the path
+        backgroundSize: "contain",
+        backgroundRepeat: "repeat",
+      }}
+    >
       <Stack
         spacing={1}
         ref={chatContainerRef}
         className="message-screen overflow-y-auto flex flex-col justify-start h-full pt-1 pb-2 scrollbar-hidden"
       >
         {messages.map((message) => (
-          <div key={message.id} className="w-full flex flex-row justify-end">
-            <div className="bg-[#666666] p-2 rounded-2xl text-white w-fit">
-              {message.value}
+          <div
+            key={message.id}
+            className="w-full flex flex-row justify-end"
+          >
+            <div className="rounded-lg bg-[#005646] text-white w-fit flex items-center justify-center h-fit px-2 py-1">
+              <span className="leading-tight">{message.value}</span>
             </div>
           </div>
         ))}
@@ -104,9 +109,13 @@ const ChatInput = () => {
           onClick={() => handleMicChange()}
           children={
             mic ? (
-              <MicIcon className={`${micAnimation ? 'rotate-y' : ''}`} />
+              <MicIcon className={`${micAnimation ? "rotate-y" : ""}`} />
             ) : (
-              <DeleteOutlineTwoToneIcon className={`text-red-500 ${deleteAnimation ? 'fall-animation' : ''}`} />
+              <DeleteOutlineTwoToneIcon
+                className={`text-red-500 ${
+                  deleteAnimation ? "fall-animation" : ""
+                }`}
+              />
             )
           }
         />
@@ -120,30 +129,33 @@ const ChatInput = () => {
 
 const InputButton = ({ children, error = false, onClick }) => {
   return (
-    <div onClick={onClick} className="flex items-center text-[#666666] cursor-pointer">
+    <div
+      onClick={onClick}
+      className="flex items-center text-[#666666] cursor-pointer"
+    >
       <IconButton color={error ? "error" : ""}>{children}</IconButton>
     </div>
   );
 };
 
 const MyAudioVisualizer = () => {
+  const [mediaRecorder, setMediaRecorder] = useState(null);
+  const visualizerRef = useRef(null);
 
-  const [mediaRecorder, setMediaRecorder] = useState(null)
-  const visualizerRef = useRef(null)
-
-  navigator.mediaDevices.getUserMedia({audio: true}).then(stream => {
-
-    const mediaRecorder = new MediaRecorder(stream)
-    setMediaRecorder(mediaRecorder)
-    mediaRecorder.start()
-    // const audioChunks = []
-    // mediaRecorder.addEventListener('dataavailable', (event) => {
-    //   audioChunks.push
-    // })
-
-  }).catch(error => {
-    console.log('Error accesing microphone', error)
-  })
+  navigator.mediaDevices
+    .getUserMedia({ audio: true })
+    .then((stream) => {
+      const mediaRecorder = new MediaRecorder(stream);
+      setMediaRecorder(mediaRecorder);
+      mediaRecorder.start();
+      // const audioChunks = []
+      // mediaRecorder.addEventListener('dataavailable', (event) => {
+      //   audioChunks.push
+      // })
+    })
+    .catch((error) => {
+      console.log("Error accesing microphone", error);
+    });
 
   return (
     <div>

@@ -1,0 +1,122 @@
+{
+    "calendlyLink": "https://calendly.com/imanolcondeimanol/20min",
+    "socials": {
+      "github": {
+        "url": "https://github.com/ima1256"
+      },
+      "linkedin": {
+        "url": "https://www.linkedin.com/in/imanolcondegonzalez"
+      },
+      "facebook": {
+        "url": "https://www.facebook.com/imanol.conde.37"
+      }
+    },
+    "primeVideo": {
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    },
+    "myJourney": {
+        "events": [
+            {        
+                "date": "",
+                "name": "",
+                "description": ""
+            }
+        ]
+
+    },
+    "projects": [
+        {
+            "name": "",
+            "thumbnailUrl": "",
+            "videoUrl": "",
+            "description": "",
+            "liveDemoUrl": ""
+        }
+    ],
+    "contactInfo": {
+        "name":  "Imanol Conde González",
+        "email": "imanolcondeimanol@gmail.com",
+        "phone": {
+            "ext": "34",
+            "value": "627188184"
+        },
+        "location": "Hondarribia, Guipuzkoa, Basque Country",
+        "photo": {
+            "full": "fullPhotoUrl.png",
+            "thumbnail": "thumbnailPhotoUrl"
+        },
+        "bornDate": "",
+        "selfDescription": ""
+    },
+    "liveStreaming": {
+        "stats": {
+            "totalHours": ""
+        }
+    },
+    "skills": {
+        "main": ["react", "tailwind", "mongoDB", "saas", "nodejs", "linux"],
+        "all": [
+            {
+                "name": "react",
+                "logoUrl": "",
+                "level": "5"
+            }, 
+            {
+                "name": "tailwind",
+                "logoUrl": "",
+                "level": "5"
+            }, 
+            {
+                "name": "mongoDB",
+                "logoUrl": "",
+                "level": "5"
+            }, 
+            {
+                "name": "saas",
+                "logoUrl": "",
+                "level": "5"
+            }, 
+            {
+                "name": "nodejs",
+                "logoUrl": "",
+                "level": "5"
+            },
+            {
+                "name": "linux",
+                "logoUrl": "",
+                "level": "5"
+            }
+        ]
+    } ,
+    "education": {
+        "institutions": [
+            {
+                "name": "Upv/Ehu",
+                "institutionLogoUrl": "",
+                "degree": "Computer Science",
+                "degreeLogoUrl": "",
+                "skillsAquired": ["python", "SQL"],
+                "description": {
+                    "short": "",
+                    "long": ""
+                },
+                "date": {
+                    "from": "",
+                    "to": ""
+                }
+            }
+
+        ]
+    },
+    "experience": {
+        "companies": [
+            {
+                "name": "Geminys",
+                "title": "Junior Software Engineer",
+                "description": "",
+                "skillsAquired": ["python", "SQL"]
+            }
+        ]
+    }
+  }
+  
